@@ -24,8 +24,8 @@ By default, the input is a text field for the image's URL.
     <%= render partial: 'fields/active_storage/items', locals: { field: field } %>
   <% end %>
 
-  <div>
-    <%= field.can_add_attachment? ? "Add:" : "Replace:" %>
-    <%= f.file_field field.attribute, multiple: field.many?, direct_upload: field.direct? %>
+  <div class="form-group mt-2">
+    <label><%= field.can_add_attachment? ? "Add:" : "Replace:" %></label>
+    <%= f.file_field field.attribute, multiple: field.many?, direct_upload: field.direct?, class: 'form-control-file' %>
   </div>
 </div>

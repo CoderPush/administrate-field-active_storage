@@ -17,8 +17,9 @@ This partial renders one or more attachments
   removable = local_assigns.fetch(:removable, false)
 %>
 
+<div class="card-deck">
 <% field.attachments.each do |attachment| %>
-  <div class="attachments-listing">
+  <div class="attachments-listing card" style="width: 10rem">
     <%= render partial: 'fields/active_storage/item',
                locals: {
                    field: field,
@@ -28,3 +29,4 @@ This partial renders one or more attachments
                } %>
   </div>
 <% end %>
+</div>

@@ -24,19 +24,18 @@ controlled via a boolean local variable.
   Maximum size of the ActiveStorage preview.
 %>
 <% if field.show_display_preview? %>
-  <div>
+  <div class='card-header'>
     <%= render partial: 'fields/active_storage/preview', locals: local_assigns %>
   </div>
 <% end %>
 
-<div>
+<div class='card-body'>
   <%= link_to attachment.filename, field.blob_url(attachment), title: attachment.filename %>
 </div>
 
 <% if field.destroy_url.present? %>
   <% destroy_url = field.destroy_url.call(namespace, field.data.record, attachment) %>
-  <div>
+  <div class='card-footer'>
     <%= link_to 'Remove', destroy_url, method: :delete, class: 'remove-attachment-link', data: { confirm: t("administrate.actions.confirm") } %>
   </div>
-  <hr>
 <% end %>
