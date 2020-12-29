@@ -7,6 +7,14 @@ module Administrate
       class Engine < ::Rails::Engine
       end
 
+      def preview_items
+        if many? && index_preview_count
+          data.take(index_preview_count)
+        else
+          data
+        end
+      end
+
       def index_display_preview?
         options.fetch(:index_display_preview, true)
       end
@@ -17,6 +25,10 @@ module Administrate
 
       def index_display_count?
         options.fetch(:index_display_count) { attached? && attachments.count != 1 }
+      end
+
+      def index_preview_count
+        options[:index_preview_count]
       end
 
       def show_display_preview?
