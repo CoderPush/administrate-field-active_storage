@@ -11,7 +11,7 @@ module Administrate
         if many? && index_preview_count
           data.take(index_preview_count)
         else
-          data
+          Array.wrap(data)
         end
       end
 
